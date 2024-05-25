@@ -15,7 +15,8 @@ obrazky_2 = []
 nasobek = 1
 jeho_projekty = 0
 count = 0
-
+font = pygame.font.Font(None, 36)
+text = font.render(f'Počet projektů: {jeho_projekty}', True, (255, 255, 255))
 
     
 
@@ -51,7 +52,9 @@ def animace(pocet_obrazku, poloha_x, poloha_y):
             sys.exit()
 
 screen.blit(pozadi, (0, 0))
+
 # pygame.draw.rect(screen, (255, 255, 100), (145, 210, 170, 500), 0) #hlava pana krbce ohraniceni - pro klikani
+
 
 while True:
     
@@ -73,7 +76,6 @@ while True:
             print(jeho_projekty)
             animace(14, 700, 700)
             count += 1
-            screen.blit(pozadi, (0, 0))           
-               
+            screen.blit(pozadi, (0, 0))
 
     pygame.display.flip()
