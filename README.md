@@ -14,8 +14,8 @@ A nevznikal mi v tom chaos. I když to vypadá naopak.
 
 # Jak si to můžu zahrát?
 
-1.  - Kliknete na zelené tlačítko **Code** 
-2.  - Jakmile to uděláte, dejte že chcete *download ZIP* (stáhnout složku, ve které je vše)
-3.  - A nyní zbývá **extrahovat** soubory, kam chcete.
-> [*NOTE] Musíte si stáhnout program, který dokáže číst připonu .ZIP, tohle dokáže například: 7ZIP a WinRar. A taky Python [https://www.python.org/ftp/python/3.12.3/python-3.12.3-amd64.exe].
+1.  Kliknete na zelené tlačítko **Code** 
+2.  Jakmile to uděláte, dejte že chcete *download ZIP* (stáhnout složku, ve které je vše)
+3.  A nyní zbývá **extrahovat** soubory, kam chcete.
+ > Musíte si stáhnout program, který dokáže číst připonu .ZIP, tohle dokáže například: 7ZIP a WinRar. A taky Python [https://www.python.org/ftp/python/3.12.3/python-3.12.3-amd64.exe].
 4. Tadá, nyni vám stačí pustit **main.py** ve programu Python.
