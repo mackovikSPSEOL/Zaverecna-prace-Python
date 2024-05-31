@@ -3,7 +3,6 @@ import sys
 import random
 import time
 from pygame import draw
-import asyncio
 
     
 
@@ -33,12 +32,13 @@ timer = 0
 pocet_kav = 0
 cena_kavy =  4*pocet_kav
 switch_obchod = False
+
 font_text = pygame.font.Font(cesta_k_fontu, 18)
-text = font_text.render(f'Jeho projekty: {jeho_projekty}', True, (255, 255, 255))
-obchod_item1 = font_text.render(f'Ořískové Cappuccino: {pocet_kav}', True, (255, 255, 255))
+text = font_text.render(f'Počet vytvořených projektů: {jeho_projekty}', True, (255, 255, 255))
+obchod_item1 = font_text.render(f'Ořískové Cappuccino: {pocet_kav}', True, (0, 0, 0))
 pozadi_secret_1 = pygame.transform.scale(pozadi_secret_1, (sirka, vyska))
 pozadi_secret_2 = pygame.transform.scale(pozadi_secret_2, (sirka, vyska))
-obchod_item = pygame.Rect(1200, 150, 350, 100)
+obchod_item = pygame.image.load("assets\shop\oriskova_kava.png")
 pozadi_hudba.play(loops=-1)
 fps = pygame.time.Clock()
 
@@ -62,10 +62,10 @@ def zakoupeni_itemu():
 def refresh_obrazu():
         obraz.blit(pozadi, (0, 0))
         obraz.blit(text, (150, 150))
-        
-        pygame.draw.rect(obraz, (255, 0, 0), obchod_item)
-        obraz.blit(obchod_item1, (1100, 150))
+        obraz.blit(obchod_item, (1200, 150))
+        obraz.blit(obchod_item1, (1210, 160))
         pygame.display.flip()
+
 
 def secret():
     if switch == 0:
@@ -91,7 +91,7 @@ def secret():
 
 
 def update_text():
-    return font_text.render(f'Jeho projekty: {jeho_projekty}', True, (255, 255, 255))
+    return font_text.render(f'Počet vytvořených projektů: {jeho_projekty}', True, (255, 255, 255))
 
 def list_obrazku(slozka, pocet_obrazku):
     # počet obrázků je číslo kolik obrázků je v složce :) 
@@ -119,14 +119,7 @@ def animace(pocet_obrazku, poloha_x, poloha_y):
         obraz.blit(snimek, snimek_rect)
         pygame.display.update()
         time.sleep(0.1)
-
-
-async def pocitani_sekund():
-    global timer
-    await asyncio.sleep(1)
-    timer += 1
-    print(timer)
-
+   
 
 while True:
     
@@ -138,10 +131,10 @@ while True:
         
             
     if event.type == pygame.MOUSEBUTTONDOWN:
-            # print(event.pos) kontrola pozic
-        if obchod_item.collidepoint(event.pos):
-            zakoupeni_itemu()
-            obchod_item1 = font_text.render(f'Ořískové Cappuccino: {pocet_kav}', True, (255, 255, 255))
+        print(event.pos) 
+        if event.pos[0] > 1200 and event.pos[0] < 1500 and event.pos[1] > 150 and event.pos[1] < 270:
+                zakoupeni_itemu()
+                
                 
         if krbec_button.collidepoint(event.pos):      
                 # print("trefa_krbec") kontrola pozic
@@ -153,4 +146,3 @@ while True:
                 secret()
     
     refresh_obrazu()
-    asyncio.run(pocitani_sekund())
