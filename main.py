@@ -49,25 +49,26 @@ krbec_button = pygame.Rect(130, 270, 198, 390)
 obraz = pygame.display.set_mode((sirka, vyska)) # nastavení velikosti okna
 pygame.display.set_caption("Krbec Clicker") # nastavení názvu okna
 
-def zakoupeni_itemu():
-    global pocet_kav
-    global cena_kavy
-    global jeho_projekty
-    time.sleep(0.5)
-    if jeho_projekty >= cena_kavy:
-        pocet_kav += 1        
-        jeho_projekty = jeho_projekty - cena_kavy
+# def zakoupeni_itemu():
+#     global pocet_kav
+#     global cena_kavy
+#     global jeho_projekty
+#     time.sleep(0.5)
+#     if jeho_projekty >= cena_kavy:
+#         pocet_kav += 1        
+#         jeho_projekty = jeho_projekty - cena_kavy
 
 
 def refresh_obrazu():
         obraz.blit(pozadi, (0, 0))
         obraz.blit(text, (150, 150))
-        obraz.blit(obchod_item, (1200, 150))
-        obraz.blit(obchod_item1, (1210, 160))
+        # obraz.blit(obchod_item, (1200, 150))
+        # obraz.blit(obchod_item1, (1210, 160))
         pygame.display.flip()
 
 
 def secret():
+    global switch
     if switch == 0:
                 obraz.blit(pozadi_secret_1, (0, 0))
                 pozadi_hudba.stop()
@@ -132,8 +133,8 @@ while True:
             
     if event.type == pygame.MOUSEBUTTONDOWN:
         print(event.pos) 
-        if event.pos[0] > 1200 and event.pos[0] < 1500 and event.pos[1] > 150 and event.pos[1] < 270:
-                zakoupeni_itemu()
+        # if event.pos[0] > 1200 and event.pos[0] < 1500 and event.pos[1] > 150 and event.pos[1] < 270:
+        #         zakoupeni_itemu() failnul jsem to
                 
                 
         if krbec_button.collidepoint(event.pos):      
